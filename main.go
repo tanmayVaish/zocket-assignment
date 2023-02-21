@@ -20,17 +20,17 @@ func main() {
 	if err1 != nil {
 		log.Fatal("Error loading .env file")
 	}
-	config := models.Config{
-		Host:     os.Getenv("DB_HOST"),
-		Port:     os.Getenv("DB_PORT"),
-		User:     os.Getenv("DB_USER"),
-		Password: os.Getenv("DB_PASSWORD"),
-		DBName:   os.Getenv("DB_NAME"),
-		SSLMode:  os.Getenv("DB_SSLMODE"),
+	db_config := models.Config{
+		DB_Host:     os.Getenv("DB_HOST"),
+		DB_Port:     os.Getenv("DB_PORT"),
+		DB_User:     os.Getenv("DB_USER"),
+		DB_Password: os.Getenv("DB_PASSWORD"),
+		DB_Name:     os.Getenv("DB_NAME"),
+		DB_SSLMode:  os.Getenv("DB_SSLMODE"),
 	}
 
 	// Initialize DB
-	models.InitDB(config)
+	models.InitDB(db_config)
 
 	// Load the routes
 
@@ -40,6 +40,10 @@ func main() {
 	// TASK 2
 	routes.ParseCsvRoute(r)
 
-	// Run the server
-	r.Run(":8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	r.Run(":" + port)
 }
