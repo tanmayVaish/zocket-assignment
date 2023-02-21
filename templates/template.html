@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSV Data Table</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<h1>CSV Data Table</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{range .data}}
+			<tr>
+				<td>{{.Name}}</td>
+				<td>{{.Email}}</td>
+				<td>{{.Phone}}</td>
+			</tr>
+			{{end}}
+		</tbody>
+	</table>
+	<script src="/static/script.js"></script>
+</body>
+</html>
