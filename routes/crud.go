@@ -6,10 +6,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Crud(r *gin.Engine) {
-	r.GET("/books", controllers.GetBooks)
-	r.GET("/book/:id", controllers.GetBook)
-	r.POST("/book", controllers.CreateBook)
-	r.PUT("/book/:id", controllers.UpdateBook)
-	r.DELETE("/book/:id", controllers.DeleteBook)
+func CrudRoute(r *gin.Engine) {
+
+	crud := r.Group("/crud")
+
+	crud.GET("/books", controllers.GetBooks)
+	crud.GET("/book/:id", controllers.GetBook)
+	crud.POST("/book", controllers.CreateBook)
+	crud.PUT("/book/:id", controllers.UpdateBook)
+	crud.DELETE("/book/:id", controllers.DeleteBook)
 }
