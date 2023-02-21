@@ -2,6 +2,19 @@
 
 I have provided a frontend using server-side rendering for the Assignment Task 1.
 
+## CSV format (Task 1)
+
+> Remember while checking the frontend, Try using csv with following format:
+
+```csv
+
+Name,Email,Phone
+John Doe,john@example.com,555-1234
+Jane Smith,jane@example.com,555-5678
+Bob Johnson,bob@example.com,555-9012
+
+```
+
 Moreover, The solution for the Assignment Task 2 in the form of a REST API. The API is also documented using Postman and the collection can be accessed using the button below.
 
 Both the frontend and the API are hosted on Railway.
