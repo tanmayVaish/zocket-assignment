@@ -54,6 +54,10 @@ func ParseCsvRoute(r *gin.Engine) {
 
 		var data []Record
 		for _, r := range records {
+			// do not run first iteration
+			if r[0] == "Name" {
+				continue
+			}
 			record := Record{Name: r[0], Email: r[1], Phone: r[2]}
 			data = append(data, record)
 		}
